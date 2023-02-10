@@ -1,38 +1,127 @@
+@import url('https://fonts.googleapis.com/css2?family=Cantarell&display=swap');
+
 .App {
+  padding: 0px;
   text-align: center;
+  font-family: 'Cantarell', sans-serif;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* =====Main app box content===== */
+.mainBox {
+  display:flex;
+  flex-flow: column;
+  align-items: center;
+  align-content: center;
+  overflow: hidden;
+  margin: 50px;
+  padding: 20px;
+  width: 450px;
+  height: 750px;
+  background-color: #FBAB7E;
+  background-image: linear-gradient(62deg, #FBAB7E 32%, #F7CE68 100%);
+  border: 3px #ffffff;
+  border-style: solid;
+  box-shadow: 0 0 70px inset white;
+  box-shadow: 10px 10px 20px  rgb(46, 72, 121);
+  border-radius: 25px;
+
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+h1 {
+  align-content: center;
+  width: 400px;
+  height: 60px;
+  color: #660000;
+  box-shadow: 5px 5px 5px  rgb(109, 40, 40);
+  background-color: #FFE53B;
+  background-image: linear-gradient(147deg, #FFE53B 0%, #e26464 74%);
+  border: 2px #ffffff;
+  border-radius: 20px;
+
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.listBox {
+  overflow: auto;
+}
+
+/* =====Task bars styling===== */
+.toDoBar {
+  font-size: 22px;
+  margin: 10px;
   display: flex;
-  flex-direction: column;
+  justify-content:flex-start;
+  background-color: #ffffff;
+  width: 450px;
+  height: 70px;
+  border: 3px #ffffff;
+  border-style: solid;
+  border-radius: 25px;
+  box-shadow: 0 9px 9px 0 rgb(109, 40, 40);
+
+
+}
+
+/* =====Input bar and add task button===== */
+
+.taskBox {
+  display: flex;
+  align-items: center;
+  flex-flow: row-reverse;
+
+}
+
+.taskInput {
+  margin: 10px;
+  font-size: 20px;
+  height: 50px;
+  width: 300px;
+  border-style: solid;
+  border-radius: 20px;
+  border-color: #ffffff;
+  box-shadow: 5px 5px 5px  rgb(109, 40, 40);
+
+
+}
+
+.addTaskBtn {
+  display: flex;
+  flex-flow: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  font-size: 50px;
+  width: 70px;
+  height: 70px;
+  border: 2px #ffffff;
+  border-radius: 30px;
+  box-shadow: 0 0 10px inset white;
+  box-shadow: 5px 5px 5px  rgb(109, 40, 40);
+  background-color: #FFE53B;
+  background-image: linear-gradient(147deg, #FFE53B 0%, #e26464 74%);
+  color: #660000;
+
 }
 
-.App-link {
-  color: #61dafb;
+.addTaskBtn:hover {
+  border-radius: 30px;
+  color: #ffffff;
+  box-shadow: 0 0 10px inset #ffffff;
+
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
+/* .removeBtn {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 50px;
+  font-size: 50px;
+  width: 50px;
+  height: 50px;
+  border: 2px #ffffff;
+  border-radius: 30px;
+  box-shadow: 0 0 10px inset white;
+  box-shadow: 5px 5px 5px  rgb(109, 40, 40);
+  background-color: #FFE53B;
+  background-image: linear-gradient(147deg, #FFE53B 0%, #e26464 74%);
+  color: #660000;
+} */
