@@ -7,6 +7,8 @@ function App() {
 
   const [toDo, setToDo] = useState([])
 
+  const [strike, setStrike] = useState(false)
+
 // =====Overall function adds and updates the array stored in state. First it creates a copy of the values in the state array.
 // =====And then adds what is typed in the input box to the copy array.
 // =====Update the current state value to the changed copy and setting that as the new state value.
@@ -14,7 +16,9 @@ function App() {
     let newToDoList = [...toDo]
     newToDoList.push(input)
     setToDo(newToDoList)
-}
+    setInput("")
+// =====After submutting input, input state will then be set back to nothing
+  }
 
   const removeToDo = (index) => {
     let newToDoList = [...toDo]
@@ -22,7 +26,13 @@ function App() {
     setToDo(newToDoList)
   }
 
-// JavaScript/HTML ONLY in return statement for App function or it won't like you.
+  const taskDone = () => {
+    setStrike(!strike)
+  }
+
+  let strikeCheck = strike ? "active" : null;
+
+// JavaScript/HTML ONLY in return statement for App function or it won't like you
   return (
     <div className="App">
 
@@ -38,8 +48,9 @@ function App() {
         <div className="listBox">
           {toDo.map((task, index) => {
             return (
-              <div key={index} className="toDoBar" onClick={() => removeToDo(index)} >
-                <p>{task}</p>
+              <div key={index} className="toDoBar">
+                <button id="remove" onClick={() => removeToDo(index)}>-</button>
+                <p id={strikeCheck} onClick={taskDone}>{task}</p>
               </div>
             )
           })}
