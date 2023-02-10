@@ -7,8 +7,6 @@ function App() {
 
   const [toDo, setToDo] = useState([])
 
-  const [strike, setStrike] = useState(false)
-
 // =====Overall function adds and updates the array stored in state. First it creates a copy of the values in the state array.
 // =====And then adds what is typed in the input box to the copy array.
 // =====Update the current state value to the changed copy and setting that as the new state value.
@@ -26,12 +24,6 @@ function App() {
     setToDo(newToDoList)
   }
 
-  const taskDone = () => {
-    setStrike(!strike)
-  }
-
-  let strikeCheck = strike ? "active" : null;
-
 // JavaScript/HTML ONLY in return statement for App function or it won't like you
   return (
     <div className="App">
@@ -48,10 +40,7 @@ function App() {
         <div className="listBox">
           {toDo.map((task, index) => {
             return (
-              <div key={index} className="toDoBar">
-                <button id="remove" onClick={() => removeToDo(index)}>-</button>
-                <p id={strikeCheck} onClick={taskDone}>{task}</p>
-              </div>
+              <ToDoitem key={index} task={task} index={index} removeToDo={removeToDo}/>
             )
           })}
         </div>
@@ -60,4 +49,22 @@ function App() {
     </div>
   );
 }
+
+// For each time we run the component we also run the state value that is connected
+const ToDoitem = ({task, index, removeToDo}) => {
+  const [strike, setStrike] = useState(false)
+
+  let strikeCheck = strike ? "active" : null;
+
+  const taskDone = () => {
+    setStrike(!strike)
+  }
+  return (
+    <div  className="toDoBar">
+    <button id="remove" onClick={() => removeToDo(index)}>-</button>
+    <p id={strikeCheck} onClick={() => taskDone(index)}>{task}</p>
+  </div>
+  )
+}
+
 export default App;
