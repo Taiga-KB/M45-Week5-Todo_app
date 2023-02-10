@@ -40,6 +40,7 @@ function App() {
         <div className="listBox">
           {toDo.map((task, index) => {
             return (
+              // Component parameters must be the same
               <ToDoitem key={index} task={task} index={index} removeToDo={removeToDo}/>
             )
           })}
@@ -55,10 +56,13 @@ const ToDoitem = ({task, index, removeToDo}) => {
   const [strike, setStrike] = useState(false)
 
   let strikeCheck = strike ? "active" : null;
-
+// ID becomes "active" when true and is removed when false
   const taskDone = () => {
     setStrike(!strike)
   }
+// This return could be stored inside the App() return, but unique function that
+// needed to reference the default state each time a new task was made, it was remade into
+// a component
   return (
     <div  className="toDoBar">
     <button id="remove" onClick={() => removeToDo(index)}>-</button>
